@@ -1,4 +1,4 @@
-##显示剔除前景后的特征点，并与未提出之前进行比较。
+##显示剔除前景后的特征点，并与未剔除之前进行比较。
 
 import torch
 from PIL import Image
@@ -38,13 +38,14 @@ def get_background_mask(image_paths):
     with torch.no_grad():
         outputs = model(**inputs, output_attentions=True)
 
-    n_clusters = 3
+    n_clusters = 2
     K = ke.keys[:, 1:, :].cpu().reshape(len(imgs) * 256, -1)
     labels = KMeans(n_clusters=n_clusters).fit_predict(K).reshape(len(imgs), 16, 16)
 
     masks = []
     for i, img in enumerate(imgs):
         mask = labels[i]
+        #background_mask = (mask == 0) | (mask == 1)
         background_mask = (mask == 0)
         # 上采样到原图大小
         background_mask = torch.nn.functional.interpolate(
@@ -181,5 +182,5 @@ def visualize_results(image_paths):
         print(f"Error: {e}")
         print("Please try with different images or adjust the background detection parameters")
 if __name__ == "__main__":
-    image_paths = ['/home/doublepoints/Projects/dinov2-test/test-image/15.jpg', '/home/doublepoints/Projects/dinov2-test/test-image/1155.jpg']
+    image_paths = ['/home/doublepoints/Projects/dinov2-test/images-tmp2/Screenshot from 2024-10-30 10-47-16.png', '/home/doublepoints/Projects/dinov2-test/images-tmp2/Screenshot from 2024-10-30 10-47-18.png']
     visualize_results(image_paths)

@@ -8,7 +8,7 @@ import numpy as np
 
 
 # 获取所有图片文件名
-filenames = glob('images-tmp/*.png')
+filenames = glob('images-tmp2/*.png')
 # 加载所有图片并转换为RGB格式
 imgs = [Image.open(fn).convert('RGB') for fn in filenames]
 
@@ -16,9 +16,9 @@ imgs = [Image.open(fn).convert('RGB') for fn in filenames]
 fig, axs = plt.subplots(1, len(imgs), figsize=(4 * len(imgs), 4))  # 调整figsize以适应图片数量
 
 # 循环显示图片
-for img, ax in zip(imgs, axs):
-    ax.imshow(img)
-    ax.axis('off')  # 关闭坐标轴
+#for img, ax in zip(imgs, axs):
+#    ax.imshow(img)
+#    ax.axis('off')  # 关闭坐标轴
 
 #plt.show()  # 显示所有图片
 
