@@ -182,5 +182,5 @@ def visualize_results(image_paths):
         print(f"Error: {e}")
         print("Please try with different images or adjust the background detection parameters")
 if __name__ == "__main__":
-    image_paths = ['/home/doublepoints/Projects/dinov2-test/images-tmp2/Screenshot from 2024-10-30 10-47-16.png', '/home/doublepoints/Projects/dinov2-test/images-tmp2/Screenshot from 2024-10-30 10-47-18.png']
+    image_paths = ['/home/tridot/Projects/dinov2-test/images-tmp2/Screenshot from 2024-10-30 10-47-16.png', '/home/tridot/Projects/dinov2-test/images-tmp2/Screenshot from 2024-10-30 10-47-18.png']
     visualize_results(image_paths)
