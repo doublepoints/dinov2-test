@@ -1,5 +1,5 @@
 model:
-    name: custom_model
+    name: two_view_pipeline_mask
     extractor:
       name: gluefactory_nonfree.superpoint
       max_num_keypoints: 2048

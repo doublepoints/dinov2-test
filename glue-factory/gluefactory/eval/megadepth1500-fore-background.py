@@ -27,6 +27,10 @@ from sklearn.cluster import KMeans
 from lightglue import LightGlue, SuperPoint
 from lightglue.utils import rbd
 
+#add superpoint and lightglue
+from gluefactory.models import getmodel
+
+
 logger = logging.getLogger(__name__)
 
 # 禁用beta警告（如果需要）
